@@ -1,11 +1,16 @@
 class String
   define_method(:word_count) do |user_phrase|
     user_word = self
-    sentence = []
-    if user_phrase.include?(user_word)
-     user_word
-    else
-     ''
+    word_home = []
+    words = user_phrase.split(/ /)
+
+    words.each() do |word|
+     if word.include?(user_word)
+      word_home.push(word)
+     else
+      ''
+     end
     end
+    word_home.length()
   end
 end

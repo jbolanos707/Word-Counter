@@ -11,14 +11,22 @@ require('./lib/word_count')
 
 describe('String#word_count') do
   it("returns the word if the word is the same") do
-   expect(('happy').word_count(['happy'])).to(eq('happy'))
+   expect(('happy').word_count('happy')).to(eq(1))
   end
 
   it("does not return the word if the word is not the same") do
-    expect(('happy').word_count(['sad'])).to(eq(''))
+    expect(('happy').word_count('sad')).to(eq(0))
   end
 
   it("detects the word amongst other words") do
-    expect(('happy').word_count(['happy', 'joy'])).to(eq('happy'))
+    expect(('happy').word_count('happy joy')).to(eq(1))
+  end
+
+  it("counts the user's word") do
+    expect(('happy').word_count('happy')).to(eq(1))
+  end
+
+  it("counts the user's word in a sentence") do
+    expect(('happy').word_count('monkey is happy happy')).to(eq(2))
   end
 end
