@@ -1,10 +1,11 @@
 class String
-  define_method(:word_count) do |word|
+  define_method(:word_count) do |user_phrase|
     user_word = self
-    if word == user_word
-      word
-    elsif word != user_word
-      ""
+    sentence = []
+    if user_phrase.include?(user_word)
+     user_word
+    else
+     ''
     end
   end
 end
